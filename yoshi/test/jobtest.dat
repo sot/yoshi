@@ -1,0 +1,2 @@
+obsid cycle chipx chipy chip_id ra_targ dec_targ roll_targ detector offset_y offset_z sim_offset focus_offset dither_y dither_z obs_date t_ccd man_angle
+20562 19 970.0 975.0 3 239.06125 66.346917 197.12149 ACIS-I -2.3 3.0 0 0 8 8 2019:174:00:32:23.789 -9.1 175
