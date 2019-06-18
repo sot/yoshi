@@ -26,17 +26,6 @@ def run_one_yoshi(**kw):
     :param obs_date: observation date (for proper motion and ACA offset projection)
     :param t_ccd: ACA CCD temperature (degrees C)
     :param man_angle: maneuver angle (degrees)
-
-    report = {'ra_pnt': q_pnt.ra,
-              'dec_pnt': q_pnt.dec,
-              'roll_pnt': q_pnt.roll,
-              'N_critical': len(acar.messages == 'critical'),
-              'N_warning': len(acar.messages == 'warning'),
-              'N_caution': len(acar.messages == 'caution'),
-              'N_info': len(acar.messages == 'info'),
-              'P2': -np.log10(acar.acqs.calc_p_safe()),
-              'guide_count': acar.guide_count}
-
     :returns: dictionary of (ra_pnt, dec_pnt, roll_pnt,
                              N_critical, N_warning, N_caution, N_info,
                              P2, guide_count)
