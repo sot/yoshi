@@ -81,18 +81,3 @@ def run_one_yoshi(**kw):
               'P2': -np.log10(acar.acqs.calc_p_safe()),
               'guide_count': acar.guide_count}
     return report
-
-
-def main():
-    import argparse
-    parser = argparse.ArgumentParser(description="yoshi")
-    parser.add_argument('jobreq', type=str)
-    opt = parser.parse_args()
-    obsjobs = Table.read(opt.jobreq, format='ascii')
-    obsjob = obsjobs[0]
-    rec = {k: v for (k, v) in zip(obsjob.colnames, obsjob)}
-    report = run_one_yoshi(**rec)
-    print(report)
-
-if __name__ == '__main__':
-    main()
