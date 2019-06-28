@@ -5,7 +5,8 @@ from chandra_aca.drift import get_aca_offsets
 import proseco
 
 
-def run_one_yoshi(*, detector, chipx, chipy, chip_id,
+def run_one_yoshi(*, obsid,
+                  detector, chipx, chipy, chip_id,
                   ra_targ, dec_targ, roll_targ,
                   offset_y, offset_z, sim_offset, focus_offset,
                   dither_y, dither_z,
@@ -14,6 +15,7 @@ def run_one_yoshi(*, detector, chipx, chipy, chip_id,
     Run proseco and sparkles for an observation request in a roll/temperature/man_angle
     scenario.
 
+    :param obsid: obsid
     :param detector: detector (ACIS-I|ACIS-S|HRC-I|HRC-S)
     :param chipx: chipx from zero-offset aimpoint table entry for obsid
     :param chipy: chipy from zero-offset aimpoint table entry for obsid
@@ -48,7 +50,7 @@ def run_one_yoshi(*, detector, chipx, chipy, chip_id,
                                (offset_z / 60.) + (aca_offset_z / 3600.))
 
     # Run proseco and sparkles
-    aca = proseco.get_aca_catalog(obsid=0,
+    aca = proseco.get_aca_catalog(obsid=obsid,
                                   att=q_aca,
                                   man_angle=man_angle,
                                   date=obs_date,

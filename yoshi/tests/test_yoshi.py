@@ -5,6 +5,7 @@ from yoshi.yoshi import run_one_yoshi
 def test_run_one_yoshi():
     """Regression test a single run for a real obsid"""
     request = {
+        'obsid': 20562,
         'chip_id': 3,
         'chipx': 970.0,
         'chipy': 975.0,
