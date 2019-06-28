@@ -25,10 +25,10 @@ def test_run_one_yoshi():
     expected = {'ra_pnt': 238.96459762180638,
                 'dec_pnt': 66.400811774068146,
                 'roll_pnt': 197.20855489084187,
-                'N_critical': 2,
-                'N_warning': 2,
-                'N_caution': 0,
-                'N_info': 1,
+                'n_critical': 2,
+                'n_warning': 2,
+                'n_caution': 0,
+                'n_info': 1,
                 'P2': 1.212575909121556,
                 'guide_count': 3.6262975526400014}
 
