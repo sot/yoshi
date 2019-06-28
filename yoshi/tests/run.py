@@ -11,7 +11,7 @@ def main():
     opt = parser.parse_args()
     obsjobs = Table.read(opt.jobreq, format='ascii')
     obsjob = obsjobs[0]
-    rec = {k: v for (k, v) in zip(obsjob.colnames, obsjob)}
+    rec = dict(zip(obsjob.colnames, obsjob))
     results = []
     for roll in range(0, 30):
         req = rec.copy()
