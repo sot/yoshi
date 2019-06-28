@@ -30,7 +30,7 @@ def run_one_yoshi(*, detector, chipx, chipy, chip_id,
     :param obs_date: observation date (for proper motion and ACA offset projection)
     :param t_ccd: ACA CCD temperature (degrees C)
     :param man_angle: maneuver angle (degrees)
-    :returns: dictionary of (ra_pnt, dec_pnt, roll_pnt,
+    :returns: dictionary of (ra_aca, dec_aca, roll_aca,
                              n_critical, n_warning, n_caution, n_info,
                              P2, guide_count)
 
@@ -43,13 +43,13 @@ def run_one_yoshi(*, detector, chipx, chipy, chip_id,
 
     # Get the ACA quaternion using target offsets and dynamic offsets.
     # Note that calc_aca_from_targ expects target offsets in degrees and obs is now in arcmin
-    q_pnt = calc_aca_from_targ((ra_targ, dec_targ, roll_targ),
+    q_aca = calc_aca_from_targ((ra_targ, dec_targ, roll_targ),
                                (offset_y / 60.) + (aca_offset_y / 3600.),
                                (offset_z / 60.) + (aca_offset_z / 3600.))
 
     # Run proseco and sparkles
     aca = proseco.get_aca_catalog(obsid=0,
-                                  att=q_pnt,
+                                  att=q_aca,
                                   man_angle=man_angle,
                                   date=obs_date,
                                   t_ccd_acq=t_ccd,
@@ -64,9 +64,9 @@ def run_one_yoshi(*, detector, chipx, chipy, chip_id,
     acar.run_aca_review()
 
     # Get values for report
-    report = {'ra_pnt': q_pnt.ra,
-              'dec_pnt': q_pnt.dec,
-              'roll_pnt': q_pnt.roll,
+    report = {'ra_aca': q_aca.ra,
+              'dec_aca': q_aca.dec,
+              'roll_aca': q_aca.roll,
               'n_critical': len(acar.messages == 'critical'),
               'n_warning': len(acar.messages == 'warning'),
               'n_caution': len(acar.messages == 'caution'),

@@ -22,9 +22,9 @@ def test_run_one_yoshi():
         'sim_offset': 0,
         't_ccd': -9.1}
 
-    expected = {'ra_pnt': 238.96459762180638,
-                'dec_pnt': 66.400811774068146,
-                'roll_pnt': 197.20855489084187,
+    expected = {'ra_aca': 238.96459762180638,
+                'dec_aca': 66.400811774068146,
+                'roll_aca': 197.20855489084187,
                 'n_critical': 2,
                 'n_warning': 2,
                 'n_caution': 0,
@@ -41,4 +41,3 @@ def test_run_one_yoshi():
             assert np.isclose(val, val2, atol=1e-3)
         else:
             assert val == val2
-
