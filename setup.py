@@ -13,7 +13,7 @@ setup(name='yoshi',
       author_email='jconnelly@cfa.harvard.edu',
       version=__version__,
       zip_safe=False,
-      packages=['yoshi'],
+      packages=['yoshi', 'yoshi.tests'],
       tests_require=['pytest'],
       cmdclass=cmdclass,
       )
