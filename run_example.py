@@ -15,7 +15,7 @@ def main():
     results = []
     for roll in range(0, 30):
         req = rec.copy()
-        rec['roll_targ'] = roll
+        req['roll_targ'] = roll
         report = run_one_yoshi(**req)
         results.append(report)
     Table(results).write(opt.out, format='ascii', overwrite=True)
